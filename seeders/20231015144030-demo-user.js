@@ -52,17 +52,11 @@ module.exports = {
       returning: true,
     });
 
-    const passwords = [
-      "$2a$10$w21UZzMLTtQBAem8xZYqQOjw4gfv/I4x61J3SuCtMZCpVM6p5E9TC",
-      "$2a$10$M4V45l3wCRfrXkOBEchvOe6ymWBIsBaTdcKr/smXL7ChUJFescH5q",
-      "$2a$10$isuqDbs2rfTVxZkTE/Vp8.Tt0H/Hhjqpl8cQ6668obTzUWiZ8.5BK",
-      "$2a$10$jb9ioXQNwbTrByIg..Dy9OLmDzXtosm/2toXDuNCtRKphoqcF2p2K",
-      "$2a$10$Zs/ms7.jzQeHh1GPX14hS.FgpbCGDN9W8cw5SZ1X.4jqaf/yEAyFO",
-    ];
+    const password = await bcrypt.hash('admin123', 10);
 
-    const auths = insertUsers.map((user, index) => ({
+    const auths = insertUsers.map((user) => ({
       email: `${user.name}@gmail.com`,
-      password: passwords[index],
+      password: password,
       userId: user.id,
       createdAt: new Date(),
       updatedAt: new Date(),

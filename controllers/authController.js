@@ -18,13 +18,13 @@ const register = async (req, res, next) => {
 
     // validasi data yang dikirimkan
     if (user) {
-      next(new ApiError("Email sudah terdaftar", 409));
+      return next(new ApiError("Email sudah terdaftar", 409));
     }
     if (password.length < 8) {
-      next(new ApiError("Password minimal 8 karakter", 400));
+      return next(new ApiError("Password minimal 8 karakter", 400));
     }
     if (password !== confirmPassword) {
-      next(new ApiError("Password tidak cocok", 400));
+      return next(new ApiError("Password tidak cocok", 400));
     }
 
     // hashing password
@@ -85,7 +85,7 @@ const login = async (req, res, next) => {
       res.status(200).json({
         status: "Success",
         message: "Berhasil login",
-        data: token,
+        token: token,
       });
     } else {
       next(new ApiError("email atau password salah", 400));

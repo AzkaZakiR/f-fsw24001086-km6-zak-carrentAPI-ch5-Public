@@ -5,19 +5,19 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js"
-  },
-  "author": "fadhlan",
-  "license": "ISC",
-  "devDependencies": {
-    "nodemon": "^3.0.1",
-    "sequelize-cli": "^6.6.1",
+    "dev": "nodemon index.js",
     "db-create": "sequelize db:create",
     "db-drop": "sequelize db:drop",
     "db-migrate": "sequelize db:migrate",
     "db-undo-migrate": "sequelize db:migrate:undo:all",
     "db-seed": "sequelize db:seed:all",
     "db-undo-seed": "sequelize db:seed:undo:all"
+  },
+  "author": "fadhlan",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "sequelize-cli": "^6.6.1"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",

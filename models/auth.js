@@ -19,7 +19,10 @@ module.exports = (sequelize, DataTypes) => {
   }
   Auth.init(
     {
-      email: DataTypes.STRING,
+      email: {
+        type: DataTypes.STRING,
+        unique: true, // Make the email field unique
+      },
       password: DataTypes.STRING,
       userId: DataTypes.INTEGER,
     },
